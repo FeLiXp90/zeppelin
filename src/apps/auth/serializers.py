@@ -20,3 +20,19 @@ class RegistrarUsuarioSerializer(serializers.ModelSerializer):
         user.set_password(password)
         user.save()
         return user
+    
+
+class PasswordResetRequestSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = User
+        fields = ['email']
+
+
+class PasswordResetConfirmSerializer(serializers.ModelSerializer):
+    uid = serializers.CharField()
+    token = serializers.CharField()
+    new_password = serializers.CharField(min_length=8)
+
+    class Meta:
+        model = User
+        fields = ['uid', 'token', 'new_password']
