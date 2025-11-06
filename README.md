@@ -125,7 +125,7 @@ Used by the PostgreSQL container in `docker-compose.yml`:
 | --------------------------- | --------------- | ----------------- |
 | `DJANGO_SUPERUSER_USERNAME` | Admin username. | `admin`           |
 | `DJANGO_SUPERUSER_EMAIL`    | Admin email.    | `admin@admin.org` |
-| `DJANGO_SUPERUSER_PASSWORD` | Admin password. | `xxxxxx!`         |
+| `DJANGO_SUPERUSER_PASSWORD` | Admin password. | `123`         |
 
 ---
 
