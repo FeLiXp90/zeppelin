@@ -2448,7 +2448,7 @@ COPY public.auth_permission (id, name, content_type_id, codename) FROM stdin;
 --
 
 COPY public.auth_user (id, password, last_login, is_superuser, username, first_name, last_name, email, is_staff, is_active, date_joined) FROM stdin;
-1	pbkdf2_sha256$216000$f1qLzqSsp9mH$teqBYlicfwm3F9e87uLIV8gzb0NntVZkWpimF8jNIU0=	2022-04-23 21:40:53.493436+00	t	admin			admin@gmail.com	t	t	2022-04-20 22:42:25.699042+00
+1	pbkdf2_sha256$390000$heqsF6mT9OXebDYc8RHxNE$0nNg7dCwx3mwVtEsPEGjBXqqIqz4gCJWPOTobmoxMqM=	2022-04-23 21:40:53.493436+00	t	admin			admin@gmail.com	t	t	2022-04-20 22:42:25.699042+00
 2	pbkdf2_sha256$390000$WVQeyFgrLodCS40n82HWdU$2jae6DgN/4PwQgvqANIVH9nTzqMQiu7aZ8OYIoml48c=	2023-02-11 14:19:36.120652+00	t	zeppelin			zeppelin@nemo.inf.ufes.br	t	t	2023-02-11 14:19:11.607504+00
 \.
 
