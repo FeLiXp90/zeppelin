@@ -18,7 +18,14 @@ services:
       - .env
     environment:
       - PYTHONPATH=/app/src
-    command: supervisord -c /etc/supervisord.conf
+    command: >
+      sh -c "
+      echo 'aguardando postgres...' &&
+      until nc -z db_zeppelin 5432; do sleep 2; done &&
+      echo 'postgres pronto' &&
+      python insertSQL.py &&
+      supervisord -c /etc/supervisord.conf
+      "
 
   db_zeppelin:
     image: postgres:15
@@ -28,7 +35,8 @@ services:
       - "5432:5432"
     volumes:
       - postgres_data:/var/lib/postgresql/data
-      - ./create_tables.sql:/docker-entrypoint-initdb.d/init.sql
+      #- ./create_tables.sql:/docker-entrypoint-initdb.d/init.sql
+      #- ./sql:/docker-entrypoint-initdb.d
     environment:
       POSTGRES_DB: ${POSTGRES_DB}
       POSTGRES_USER: ${POSTGRES_USER}

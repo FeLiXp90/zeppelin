@@ -3,12 +3,12 @@ from .models import (
     AcademicDegreeCategory,
     AcademicDegree,
     AcademicDegreeStatus,
-    KnwoledgeLevel,
+    KnowledgeLevel,
     ExperienceLevel,
     Position,
     Employee,
     EmployeeKnowledge,
-    SthStageKnwoledgeLevel,
+    SthStageKnowledgeLevel,
     SthStageExperienceLevel,
     Team,
 )
@@ -49,15 +49,15 @@ class AcademicDegreeStatusReadSerializer(serializers.ModelSerializer):
         exclude = ("polymorphic_ctype",)
 
 
-class KnwoledgeLevelWriteSerializer(serializers.ModelSerializer):
+class KnowledgeLevelWriteSerializer(serializers.ModelSerializer):
     class Meta:
-        model = KnwoledgeLevel
+        model = KnowledgeLevel
         exclude = ("polymorphic_ctype",)
 
-class KnwoledgeLevelReadSerializer(serializers.ModelSerializer):
+class KnowledgeLevelReadSerializer(serializers.ModelSerializer):
     class Meta:
         depth = 1
-        model = KnwoledgeLevel
+        model = KnowledgeLevel
         exclude = ("polymorphic_ctype",)
 
 
@@ -109,15 +109,15 @@ class EmployeeKnowledgeReadSerializer(serializers.ModelSerializer):
         exclude = ("polymorphic_ctype",)
 
 
-class SthStageKnwoledgeLevelWriteSerializer(serializers.ModelSerializer):
+class SthStageKnowledgeLevelWriteSerializer(serializers.ModelSerializer):
     class Meta:
-        model = SthStageKnwoledgeLevel
+        model = SthStageKnowledgeLevel
         exclude = ("polymorphic_ctype",)
 
-class SthStageKnwoledgeLevelReadSerializer(serializers.ModelSerializer):
+class SthStageKnowledgeLevelReadSerializer(serializers.ModelSerializer):
     class Meta:
         depth = 1
-        model = SthStageKnwoledgeLevel
+        model = SthStageKnowledgeLevel
         exclude = ("polymorphic_ctype",)
 
 

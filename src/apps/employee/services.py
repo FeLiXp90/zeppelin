@@ -1,5 +1,5 @@
 from django.conf import settings
-from .models import AcademicDegree, AcademicDegreeStatus, KnwoledgeLevel, ExperienceLevel, EmployeeKnowledge, Employee, Position, SthStageKnwoledgeLevel, SthStageExperienceLevel
+from .models import AcademicDegree, AcademicDegreeStatus, KnowledgeLevel, ExperienceLevel, EmployeeKnowledge, Employee, Position, SthStageKnowledgeLevel, SthStageExperienceLevel
 from apps.sth.models import Stage
 import xlrd 
 
@@ -9,7 +9,7 @@ class EmployeeServiceBase():
     def __init__(self):
         self.academic_degrees = {}
         self.academic_degrees_status = {}
-        self.knwoledge_levels = {}
+        self.knowledge_levels = {}
         self.experience_levels = {}
         self.stages = {}
         
@@ -19,8 +19,8 @@ class EmployeeServiceBase():
         for academic_degree_status in AcademicDegreeStatus.objects.all():
             self.academic_degrees_status[academic_degree_status.name]=academic_degree_status
 
-        for knwoledge_level in KnwoledgeLevel.objects.all():
-            self.knwoledge_levels[knwoledge_level.name]=knwoledge_level
+        for knowledge_level in KnowledgeLevel.objects.all():
+            self.knowledge_levels[knowledge_level.name]=knowledge_level
         
         for experience_level in ExperienceLevel.objects.all():
             self.experience_levels[experience_level.name]=experience_level
@@ -81,13 +81,13 @@ class EmployeeService (EmployeeServiceBase):
 
         for line in range(17,21): 
             stage = self.sheet.cell_value(line, 1).strip()
-            knwoledge_level = self.sheet.cell_value(line, 2).strip()
+            knowledge_level = self.sheet.cell_value(line, 2).strip()
 
             stage = self.stages[stage]
-            knwoledge_level = self.knwoledge_levels[knwoledge_level]
+            knowledge_level = self.knowledge_levels[knowledge_level]
 
-            sth_stage_knwoledge_level = SthStageKnwoledgeLevel(stage=stage,knwoledge_level=knwoledge_level,employee_knowledge=self.employee_knowledge)
-            sth_stage_knwoledge_level.save()
+            sth_stage_knowledge_level = SthStageKnowledgeLevel(stage=stage,knowledge_level=knowledge_level,employee_knowledge=self.employee_knowledge)
+            sth_stage_knowledge_level.save()
         
     def __experience_level(self):
 
@@ -99,8 +99,8 @@ class EmployeeService (EmployeeServiceBase):
             stage = self.stages[stage]
             experience_level = self.experience_levels[experience_level]
 
-            sth_stage_knwoledge_level = SthStageExperienceLevel(stage=stage,experience_level=experience_level,employee_knowledge=self.employee_knowledge)
-            sth_stage_knwoledge_level.save()
+            sth_stage_knowledge_level = SthStageExperienceLevel(stage=stage,experience_level=experience_level,employee_knowledge=self.employee_knowledge)
+            sth_stage_knowledge_level.save()
 
 
 class EmployeenGoogleFormsService(EmployeeServiceBase):
@@ -192,32 +192,32 @@ class EmployeenGoogleFormsService(EmployeeServiceBase):
         pd_level = self.stages['P&D como Sistema de Inovação']
     
         #agil
-        knwoledge_level = self.sheet.cell_value(self.current_line, 14).strip()
-        knwoledge_level = self.experience_levels[knwoledge_level]
-        self.__create_experience_level(agile_level,knwoledge_level)
+        knowledge_level = self.sheet.cell_value(self.current_line, 14).strip()
+        knowledge_level = self.experience_levels[knowledge_level]
+        self.__create_experience_level(agile_level,knowledge_level)
 
         #CI
-        knwoledge_level = self.sheet.cell_value(self.current_line, 15).strip()
-        knwoledge_level = self.experience_levels[knwoledge_level]
-        self.__create_experience_level(ci_level,knwoledge_level)
+        knowledge_level = self.sheet.cell_value(self.current_line, 15).strip()
+        knowledge_level = self.experience_levels[knowledge_level]
+        self.__create_experience_level(ci_level,knowledge_level)
 
         #CD
-        knwoledge_level = self.sheet.cell_value(self.current_line, 16).strip()
-        knwoledge_level = self.experience_levels[knwoledge_level]
-        self.__create_experience_level(cd_level,knwoledge_level)
+        knowledge_level = self.sheet.cell_value(self.current_line, 16).strip()
+        knowledge_level = self.experience_levels[knowledge_level]
+        self.__create_experience_level(cd_level,knowledge_level)
 
         #P&D
-        knwoledge_level = self.sheet.cell_value(self.current_line, 17).strip()
-        knwoledge_level = self.experience_levels[knwoledge_level]
-        self.__create_experience_level(pd_level,knwoledge_level)
+        knowledge_level = self.sheet.cell_value(self.current_line, 17).strip()
+        knowledge_level = self.experience_levels[knowledge_level]
+        self.__create_experience_level(pd_level,knowledge_level)
 
 
-    def __create_knowledge_level(self, sth_level, knwoledge_level):
+    def __create_knowledge_level(self, sth_level, knowledge_level):
 
-        sth_stage_knwoledge_level = SthStageKnwoledgeLevel(stage=sth_level,
-        knwoledge_level=knwoledge_level,employee=self.employee)
+        sth_stage_knowledge_level = SthStageKnowledgeLevel(stage=sth_level,
+        knowledge_level=knowledge_level,employee=self.employee)
         
-        sth_stage_knwoledge_level.save()
+        sth_stage_knowledge_level.save()
 
     def __knowledge_level(self):
         
@@ -230,21 +230,21 @@ class EmployeenGoogleFormsService(EmployeeServiceBase):
         pd_level = self.stages['P&D como Sistema de Inovação']
     
         #Agil
-        knwoledge_level = self.sheet.cell_value(self.current_line, 10).strip()
-        knwoledge_level = self.knwoledge_levels[knwoledge_level]
-        self.__create_knowledge_level(agile_level,knwoledge_level)
+        knowledge_level = self.sheet.cell_value(self.current_line, 10).strip()
+        knowledge_level = self.knowledge_levels[knowledge_level]
+        self.__create_knowledge_level(agile_level,knowledge_level)
 
         #Integração Contínua
-        knwoledge_level = self.sheet.cell_value(self.current_line, 11).strip()
-        knwoledge_level = self.knwoledge_levels[knwoledge_level]
-        self.__create_knowledge_level(ci_level,knwoledge_level)
+        knowledge_level = self.sheet.cell_value(self.current_line, 11).strip()
+        knowledge_level = self.knowledge_levels[knowledge_level]
+        self.__create_knowledge_level(ci_level,knowledge_level)
 
         #Entrega Contínua
-        knwoledge_level = self.sheet.cell_value(self.current_line, 12).strip()
-        knwoledge_level = self.knwoledge_levels[knwoledge_level]
-        self.__create_knowledge_level(cd_level,knwoledge_level)
+        knowledge_level = self.sheet.cell_value(self.current_line, 12).strip()
+        knowledge_level = self.knowledge_levels[knowledge_level]
+        self.__create_knowledge_level(cd_level,knowledge_level)
 
         #P&D
-        knwoledge_level = self.sheet.cell_value(self.current_line, 13).strip()
-        knwoledge_level = self.knwoledge_levels[knwoledge_level]
-        self.__create_knowledge_level(pd_level,knwoledge_level)
+        knowledge_level = self.sheet.cell_value(self.current_line, 13).strip()
+        knowledge_level = self.knowledge_levels[knowledge_level]
+        self.__create_knowledge_level(pd_level,knowledge_level)

@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import AcademicDegreeCategory,AcademicDegree,AcademicDegreeStatus,KnwoledgeLevel,ExperienceLevel,Position,Employee,EmployeeKnowledge,SthStageKnwoledgeLevel,SthStageExperienceLevel,Team
+from .models import AcademicDegreeCategory,AcademicDegree,AcademicDegreeStatus,KnowledgeLevel,ExperienceLevel,Position,Employee,EmployeeKnowledge,SthStageKnowledgeLevel,SthStageExperienceLevel,Team
 
 @admin.register(AcademicDegreeCategory)
 class AcademicDegreeCategoryAdmin(admin.ModelAdmin):
@@ -25,8 +25,8 @@ class AcademicDegreeStatusAdmin(admin.ModelAdmin):
     list_per_page = 25
     ordering = ['-id']
 
-@admin.register(KnwoledgeLevel)
-class KnwoledgeLevelAdmin(admin.ModelAdmin):
+@admin.register(KnowledgeLevel)
+class KnowledgeLevelAdmin(admin.ModelAdmin):
     list_display = ['id', 'value']
     list_display_links = ['id', 'value']
     search_fields = ['id', 'value']
@@ -65,8 +65,8 @@ class EmployeeKnowledgeAdmin(admin.ModelAdmin):
     list_per_page = 25
     ordering = ['-id']
 
-@admin.register(SthStageKnwoledgeLevel)
-class SthStageKnwoledgeLevelAdmin(admin.ModelAdmin):
+@admin.register(SthStageKnowledgeLevel)
+class SthStageKnowledgeLevelAdmin(admin.ModelAdmin):
     list_display = ['id',]
     list_display_links = ['id',]
     search_fields = ['id',]

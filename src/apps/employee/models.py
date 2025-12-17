@@ -22,7 +22,7 @@ class AcademicDegreeStatus(Base):
     class Meta:
         db_table = 'academic_degree_status'
 
-class KnwoledgeLevel(Base):
+class KnowledgeLevel(Base):
     """"""
 
     value = models.DecimalField(max_digits=14, decimal_places=2, null=True, blank=True)
@@ -73,17 +73,17 @@ class EmployeeKnowledge(Historical):
     class Meta:
         db_table = 'employee_knowledge'
 
-class SthStageKnwoledgeLevel(Historical):
+class SthStageKnowledgeLevel(Historical):
     """"""
 
 
 
     stage = models.ForeignKey('apps_sth.Stage', blank=True, null=True, on_delete=models.CASCADE, related_name="stage_%(class)s")
-    Knwoledge_level = models.ForeignKey(KnwoledgeLevel, blank=True, null=True, on_delete=models.CASCADE, related_name="knwoledge_level_%(class)s")
+    knowledge_level = models.ForeignKey(KnowledgeLevel, blank=True, null=True, on_delete=models.CASCADE, related_name="knowledge_level_%(class)s")
     employee = models.ForeignKey(Employee, blank=True, null=True, on_delete=models.CASCADE, related_name="employee_%(class)s")
 
     class Meta:
-        db_table = 'sth_stage_knwoledge_level'
+        db_table = 'sth_stage_knowledge_level'
 
 
 class SthStageExperienceLevel (Base):

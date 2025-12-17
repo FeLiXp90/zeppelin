@@ -17,8 +17,8 @@ class Historical(PolymorphicModel):
 class Base(PolymorphicModel):
     """"""
 
-    name = models.CharField(max_length=300, null=True, blank=True)
-    description = models.CharField(max_length=300, null=True, blank=True)
+    name = models.CharField(max_length=500, null=True, blank=True)
+    description = models.CharField(max_length=500, null=True, blank=True)
     created_at = models.DateTimeField(auto_now_add=True)  # melhor que blank=True
     modified_at = models.DateTimeField(auto_now=True)
 

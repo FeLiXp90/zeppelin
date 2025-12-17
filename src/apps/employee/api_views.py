@@ -2,12 +2,12 @@ from .models import (
     AcademicDegreeCategory,
     AcademicDegree,
     AcademicDegreeStatus,
-    KnwoledgeLevel,
+    KnowledgeLevel,
     ExperienceLevel,
     Position,
     Employee,
     EmployeeKnowledge,
-    SthStageKnwoledgeLevel,
+    SthStageKnowledgeLevel,
     SthStageExperienceLevel,
     Team,
 )
@@ -15,12 +15,12 @@ from .serializers import (
     AcademicDegreeCategoryReadSerializer, AcademicDegreeCategoryWriteSerializer,
     AcademicDegreeReadSerializer, AcademicDegreeWriteSerializer,
     AcademicDegreeStatusReadSerializer, AcademicDegreeStatusWriteSerializer,
-    KnwoledgeLevelReadSerializer, KnwoledgeLevelWriteSerializer,
+    KnowledgeLevelReadSerializer, KnowledgeLevelWriteSerializer,
     ExperienceLevelReadSerializer, ExperienceLevelWriteSerializer,
     PositionReadSerializer, PositionWriteSerializer,
     EmployeeReadSerializer, EmployeeWriteSerializer,
     EmployeeKnowledgeReadSerializer, EmployeeKnowledgeWriteSerializer,
-    SthStageKnwoledgeLevelReadSerializer, SthStageKnwoledgeLevelWriteSerializer,
+    SthStageKnowledgeLevelReadSerializer, SthStageKnowledgeLevelWriteSerializer,
     SthStageExperienceLevelReadSerializer, SthStageExperienceLevelWriteSerializer,
     TeamReadSerializer, TeamWriteSerializer,
 )
@@ -96,8 +96,8 @@ class AcademicDegreeStatusViewSet(ModelViewSet):
             return AcademicDegreeStatusReadSerializer
         return AcademicDegreeStatusWriteSerializer
 
-class KnwoledgeLevelViewSet(ModelViewSet):
-    queryset = KnwoledgeLevel.objects.all()
+class KnowledgeLevelViewSet(ModelViewSet):
+    queryset = KnowledgeLevel.objects.all()
     pagination_class = CustomPagination
     authentication_classes = [OAuth2Authentication, SessionAuthentication]
     permission_classes = permission_classes = [Or(IsAdminUser, TokenHasReadWriteScope)]
@@ -113,8 +113,8 @@ class KnwoledgeLevelViewSet(ModelViewSet):
     
     def get_serializer_class(self):
         if self.request.method in ['GET']:
-            return KnwoledgeLevelReadSerializer
-        return KnwoledgeLevelWriteSerializer
+            return KnowledgeLevelReadSerializer
+        return KnowledgeLevelWriteSerializer
 
 class ExperienceLevelViewSet(ModelViewSet):
     queryset = ExperienceLevel.objects.all()
@@ -196,8 +196,8 @@ class EmployeeKnowledgeViewSet(ModelViewSet):
             return EmployeeKnowledgeReadSerializer
         return EmployeeKnowledgeWriteSerializer
 
-class SthStageKnwoledgeLevelViewSet(ModelViewSet):
-    queryset = SthStageKnwoledgeLevel.objects.all()
+class SthStageKnowledgeLevelViewSet(ModelViewSet):
+    queryset = SthStageKnowledgeLevel.objects.all()
     pagination_class = CustomPagination
     authentication_classes = [OAuth2Authentication, SessionAuthentication]
     permission_classes = permission_classes = [Or(IsAdminUser, TokenHasReadWriteScope)]
@@ -213,8 +213,8 @@ class SthStageKnwoledgeLevelViewSet(ModelViewSet):
     
     def get_serializer_class(self):
         if self.request.method in ['GET']:
-            return SthStageKnwoledgeLevelReadSerializer
-        return SthStageKnwoledgeLevelWriteSerializer
+            return SthStageKnowledgeLevelReadSerializer
+        return SthStageKnowledgeLevelWriteSerializer
 
 class SthStageExperienceLevelViewSet(ModelViewSet):
     queryset = SthStageExperienceLevel.objects.all()

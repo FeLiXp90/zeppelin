@@ -1,4 +1,4 @@
-from .models import AcademicDegreeCategory, AcademicDegree, AcademicDegreeStatus, KnwoledgeLevel, ExperienceLevel, Position, Employee, EmployeeKnowledge, SthStageKnwoledgeLevel, SthStageExperienceLevel, Team
+from .models import AcademicDegreeCategory, AcademicDegree, AcademicDegreeStatus, KnowledgeLevel, ExperienceLevel, Position, Employee, EmployeeKnowledge, SthStageKnowledgeLevel, SthStageExperienceLevel, Team
 from django.db.models.signals import (
     pre_init,   post_init,
     pre_save,   post_save,
@@ -98,33 +98,33 @@ def m2m_changed_academicdegreestatus(sender, instance, action, reverse, model, p
     pass
 
 
-## Signals from KnwoledgeLevel
-@receiver(pre_init, sender=KnwoledgeLevel)
-def pre_init_knwoledgelevel(sender, *args, **kwargs):
+## Signals from knowledgeLevel
+@receiver(pre_init, sender=KnowledgeLevel)
+def pre_init_knowledgelevel(sender, *args, **kwargs):
     pass
 
-@receiver(post_init, sender=KnwoledgeLevel)
-def post_init_knwoledgelevel(sender, instance, **kwargs):
+@receiver(post_init, sender=KnowledgeLevel)
+def post_init_knowledgelevel(sender, instance, **kwargs):
     pass
 
-@receiver(pre_save, sender=KnwoledgeLevel)
-def pre_save_knwoledgelevel(sender, instance, raw, using, update_fields, **kwargs):
+@receiver(pre_save, sender=KnowledgeLevel)
+def pre_save_knowledgelevel(sender, instance, raw, using, update_fields, **kwargs):
     pass
 
-@receiver(post_save, sender=KnwoledgeLevel)
-def post_save_knwoledgelevel(sender, instance, created, raw, using, update_fields, **kwargs):
+@receiver(post_save, sender=KnowledgeLevel)
+def post_save_knowledgelevel(sender, instance, created, raw, using, update_fields, **kwargs):
     pass
 
-@receiver(pre_delete, sender=KnwoledgeLevel)
-def pre_delete_knwoledgelevel(sender, instance, using, **kwargs):
+@receiver(pre_delete, sender=KnowledgeLevel)
+def pre_delete_knowledgelevel(sender, instance, using, **kwargs):
     pass
 
-@receiver(post_delete, sender=KnwoledgeLevel)
-def post_delete_knwoledgelevel(sender, instance, using, **kwargs):
+@receiver(post_delete, sender=KnowledgeLevel)
+def post_delete_knowledgelevel(sender, instance, using, **kwargs):
     pass
 
-@receiver(m2m_changed, sender=KnwoledgeLevel)
-def m2m_changed_knwoledgelevel(sender, instance, action, reverse, model, pk_set, using, **kwargs):
+@receiver(m2m_changed, sender=KnowledgeLevel)
+def m2m_changed_knowledgelevel(sender, instance, action, reverse, model, pk_set, using, **kwargs):
     pass
 
 
@@ -248,33 +248,33 @@ def m2m_changed_employeeknowledge(sender, instance, action, reverse, model, pk_s
     pass
 
 
-## Signals from SthStageKnwoledgeLevel
-@receiver(pre_init, sender=SthStageKnwoledgeLevel)
-def pre_init_sthstageknwoledgelevel(sender, *args, **kwargs):
+## Signals from SthStageknowledgeLevel
+@receiver(pre_init, sender=SthStageKnowledgeLevel)
+def pre_init_sthstageknowledgelevel(sender, *args, **kwargs):
     pass
 
-@receiver(post_init, sender=SthStageKnwoledgeLevel)
-def post_init_sthstageknwoledgelevel(sender, instance, **kwargs):
+@receiver(post_init, sender=SthStageKnowledgeLevel)
+def post_init_sthstageknowledgelevel(sender, instance, **kwargs):
     pass
 
-@receiver(pre_save, sender=SthStageKnwoledgeLevel)
-def pre_save_sthstageknwoledgelevel(sender, instance, raw, using, update_fields, **kwargs):
+@receiver(pre_save, sender=SthStageKnowledgeLevel)
+def pre_save_sthstageknowledgelevel(sender, instance, raw, using, update_fields, **kwargs):
     pass
 
-@receiver(post_save, sender=SthStageKnwoledgeLevel)
-def post_save_sthstageknwoledgelevel(sender, instance, created, raw, using, update_fields, **kwargs):
+@receiver(post_save, sender=SthStageKnowledgeLevel)
+def post_save_sthstageknowledgelevel(sender, instance, created, raw, using, update_fields, **kwargs):
     pass
 
-@receiver(pre_delete, sender=SthStageKnwoledgeLevel)
-def pre_delete_sthstageknwoledgelevel(sender, instance, using, **kwargs):
+@receiver(pre_delete, sender=SthStageKnowledgeLevel)
+def pre_delete_sthstageknowledgelevel(sender, instance, using, **kwargs):
     pass
 
-@receiver(post_delete, sender=SthStageKnwoledgeLevel)
-def post_delete_sthstageknwoledgelevel(sender, instance, using, **kwargs):
+@receiver(post_delete, sender=SthStageKnowledgeLevel)
+def post_delete_sthstageknowledgelevel(sender, instance, using, **kwargs):
     pass
 
-@receiver(m2m_changed, sender=SthStageKnwoledgeLevel)
-def m2m_changed_sthstageknwoledgelevel(sender, instance, action, reverse, model, pk_set, using, **kwargs):
+@receiver(m2m_changed, sender=SthStageKnowledgeLevel)
+def m2m_changed_sthstageknowledgelevel(sender, instance, action, reverse, model, pk_set, using, **kwargs):
     pass
 
 
